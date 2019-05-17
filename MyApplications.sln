@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreMvcWebsite", "DotNetCor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Tests", "OwinSelfHostWebApi\Owin.Tests\Owin.Tests.csproj", "{A725260B-DFEB-4979-BC16-30CAE3016284}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETL.Service", "ETL.Service\ETL.Service.csproj", "{4F1A24E2-A49C-431A-BF71-F76623DB2783}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETL.DataAccess", "ETL.DataAccess\ETL.DataAccess.csproj", "{7D433DC5-2CC3-42D9-83E3-A1C184300C07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{A725260B-DFEB-4979-BC16-30CAE3016284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A725260B-DFEB-4979-BC16-30CAE3016284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A725260B-DFEB-4979-BC16-30CAE3016284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F1A24E2-A49C-431A-BF71-F76623DB2783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1A24E2-A49C-431A-BF71-F76623DB2783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1A24E2-A49C-431A-BF71-F76623DB2783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1A24E2-A49C-431A-BF71-F76623DB2783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D433DC5-2CC3-42D9-83E3-A1C184300C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D433DC5-2CC3-42D9-83E3-A1C184300C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D433DC5-2CC3-42D9-83E3-A1C184300C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D433DC5-2CC3-42D9-83E3-A1C184300C07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
