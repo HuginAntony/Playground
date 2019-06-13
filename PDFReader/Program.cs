@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
+using Tesseract;
+using Path = System.IO.Path;
 
 namespace ReadPDF
 {
@@ -18,6 +20,7 @@ namespace ReadPDF
             //byte[] pageContent = pdfReader.GetPageContent(1);
             //byte[] utf8 = Encoding.Convert(Encoding.Default, Encoding.UTF8, pageContent);
             //string textFromPage = Encoding.UTF8.GetString(utf8);
+            ReadImageText();
 
             using (PdfReader reader = new PdfReader(@"f:\MyBill.pdf"))
             {
@@ -32,6 +35,24 @@ namespace ReadPDF
             
             Console.ReadLine();
         }
-       
+
+        static void ReadImageText()
+        {
+            //https://github.com/A9T9/Free-Ocr-Windows-Desktop
+            //https://github.com/A9T9/Free-OCR-Software
+
+            var path = "med.jpg";
+            using (var engine = new TesseractEngine(".\\tessdata", "eng", EngineMode.TesseractAndCube))
+            {
+                using (var img = Pix.LoadFromFile(path))
+                {
+                    using (var page = engine.Process(img))
+                    {
+                        var text = page.GetText();
+                        // text variable contains a string with all words found
+                    }
+                }
+            }
+        }
     }
 }
