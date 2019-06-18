@@ -1,7 +1,12 @@
-﻿@{
+﻿@model List<CouchBaseCaching.Game>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    Hugin
+<div class="row">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+
+        <div class="col"><img src="@Model[i].ImageUrl" /></div>
+    }
 </div>

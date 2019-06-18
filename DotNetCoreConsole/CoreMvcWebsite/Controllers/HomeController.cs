@@ -5,14 +5,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoreMvcWebsite.Models;
+using Couchbase;
+using Couchbase.Authentication;
+using Couchbase.Configuration.Client;
+using Couchbase.Core;
+using CouchBaseCaching;
 
 namespace CoreMvcWebsite.Controllers
 {
     public class HomeController : Controller
     {
+        private static IBucket _bucket;
         public IActionResult Index()
         {
-            return View();
+            ClusterHelper.Initialize(
+                new ClientConfiguration
+                {
+                    Servers = new List<Uri> { new Uri("http://localhost:8091") },
+                },
+                new PasswordAuthenticator("app", "123456"));
+
+            _bucket = ClusterHelper.GetBucket("Games");
+
+            const string query = "SELECT id, name, year, imageUrl FROM `Games`";
+
+            var games = _bucket.Query<Game>(query).Rows;
+
+            return View(games);
         }
 
         public IActionResult Privacy()
