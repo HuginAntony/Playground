@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Couchbase;
+using Couchbase.Authentication;
+using Couchbase.Configuration.Client;
 using Couchbase.Core;
 using log4net;
 using log4net.Config;
@@ -21,8 +24,16 @@ namespace CouchBaseCaching
         static void Main(string[] args)
         {
             XmlConfigurator.Configure();
-            ClusterHelper.Initialize();
-            _bucket = ClusterHelper.GetBucket("my", "hugin1");
+            ClusterHelper.Initialize(
+                new ClientConfiguration
+                {
+                    Servers = new List<Uri> { new Uri("http://localhost:8091") },
+                },
+                new PasswordAuthenticator("app", "123456"));
+
+            _bucket = ClusterHelper.GetBucket("Games");
+
+            CreateGamesCatalogue();
 
             var cities = db.Cities.ToList();
 
@@ -36,13 +47,39 @@ namespace CouchBaseCaching
             //InsertRecordsIntoCache(cities);
 
             //Takes 15 seconds to read 37940 records
-            ReadRecords(cities);
+            //ReadRecords(cities);
 
             //Takes 5 minutes and 47 seconds to Insert a record and immediately read the record
             //InsertAndReadRecords(cities);
 
             //ReadAllRecordsFromCache();
             Console.Read();
+        }
+
+        private static void CreateGamesCatalogue()
+        {
+            var files = Directory.GetFiles(@"F:\My Code\Game Thumbnails\jpgs");
+
+            foreach (var file in files)
+            {
+                var fileInfo = new FileInfo(file);
+
+                var game = new Game();
+                game.Id = Guid.NewGuid();
+                game.Name = fileInfo.Name.Replace(fileInfo.Extension,"");
+                game.ImageUrl = "/images/"+fileInfo.Name;
+                game.Year = 2000;
+
+
+                var document = new Document<Game>
+                {
+                    Id = game.Id.ToString(),
+                    Content = game
+                };
+                var upsert = _bucket.Upsert(document);
+
+                Console.WriteLine(upsert.Success);
+            }
         }
 
         private static void ReadRecordsFromSQL(List<City> cities)
@@ -151,7 +188,7 @@ namespace CouchBaseCaching
 
             foreach (var city in cities)
             {
-                var upsert = _bucket.Upsert("Expire"+city.CityID + city.CityName, city, new TimeSpan(0, 0, 0, 30));
+                var upsert = _bucket.Upsert("Expire" + city.CityID + city.CityName, city, new TimeSpan(0, 0, 0, 30));
                 //_log.Info(new { message = "Adding city to CouchBase cache", city = city.CityName, expiry = new TimeSpan(0, 0, 0, 30) });
             }
 
