@@ -9,6 +9,7 @@ using Couchbase;
 using Couchbase.Authentication;
 using Couchbase.Configuration.Client;
 using Couchbase.Core;
+using Couchbase.Extensions.DependencyInjection;
 using CouchBaseCaching;
 
 namespace CoreMvcWebsite.Controllers
@@ -18,12 +19,12 @@ namespace CoreMvcWebsite.Controllers
         private static IBucket _bucket;
         public IActionResult Index()
         {
-            ClusterHelper.Initialize(
-                new ClientConfiguration
-                {
-                    Servers = new List<Uri> { new Uri("http://localhost:8091") },
-                },
-                new PasswordAuthenticator("app", "123456"));
+            //ClusterHelper.Initialize(
+            //    new ClientConfiguration
+            //    {
+            //        Servers = new List<Uri> { new Uri("http://localhost:8091") },
+            //    },
+            //    new PasswordAuthenticator("app", "123456"));
 
             _bucket = ClusterHelper.GetBucket("Games");
 
