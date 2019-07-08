@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ReSharperDemo
 {
@@ -17,8 +18,30 @@ namespace ReSharperDemo
 
         static void Main(string[] args)
         {
+           
             //Quick fix to make method static
-            //FizzBuzz(5);
+            //FizzBuzzUnreachableCode(5);
+
+            //var persons = new List<Person> {new Person {Age = 10, Name = "Hugin"}, new Person {Age = 22, Name = "Leo"}};
+
+            //DisplayPersonList(persons);
+        }
+
+        public static void CreateClass()
+        {
+            var person = new Person();
+            person.Name = "Hugin";
+            person.Age = 34;
+
+        }
+
+        private static void DisplayPersonList(List<Person> persons)
+        {
+            //Demo DataTips
+            foreach (var person in persons)
+            {
+                var a = person.Name + "dwd";
+            }
         }
 
         void ConvertToLinq()
@@ -48,12 +71,14 @@ namespace ReSharperDemo
             return null;
         }
 
-        public static void CreateClass()
+      
+
+        public static void MarkAsInjectedLanguage()
         {
-            //var person = new Person();
-            //person.Name = "Hugin";
-            //person.Age = 3;
-            
+            var css = @".text{
+                                color: #434;
+                                margin: 0;
+                              }";
         }
     }
 }
