@@ -17,7 +17,8 @@ namespace ReSharperDemo
 
         static void Main(string[] args)
         {
-            
+            //Quick fix to make method static
+            //FizzBuzz(5);
         }
 
         void ConvertToLinq()
@@ -31,9 +32,10 @@ namespace ReSharperDemo
             //}
         }
 
-        public string FizzBuzz(int i)
+        public string FizzBuzzUnreachableCode(int i)
         {
-            //Extract to variable. Ctrl+Alt+V
+            //Extract to variable. Ctrl+Alt+V. Then move unreachable code up
+
             if (i % 3 == 0)
                 return "Fizz";
 
@@ -44,6 +46,14 @@ namespace ReSharperDemo
                 return "FizzBuzz";
 
             return null;
+        }
+
+        public static void CreateClass()
+        {
+            //var person = new Person();
+            //person.Name = "Hugin";
+            //person.Age = 3;
+            
         }
     }
 }
