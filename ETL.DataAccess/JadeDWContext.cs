@@ -3,7 +3,6 @@ using System.Configuration;
 using ETL.DataAccess.ModelConfigurations;
 using ETL.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace ETL.DataAccess
 {
