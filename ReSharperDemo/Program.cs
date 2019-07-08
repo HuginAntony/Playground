@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+using Console = System.Console;
 
 namespace ReSharperDemo
 {
@@ -18,13 +21,17 @@ namespace ReSharperDemo
 
         static void Main(string[] args)
         {
-           
             //Quick fix to make method static
             //FizzBuzzUnreachableCode(5);
 
             //var persons = new List<Person> {new Person {Age = 10, Name = "Hugin"}, new Person {Age = 22, Name = "Leo"}};
 
             //DisplayPersonList(persons);
+        }
+
+        public void SmartCompletion()
+        {
+            //var a = new XmlTextWriter("dwd", Encoding.UTF7);
         }
 
         public static void CreateClass()
@@ -35,7 +42,7 @@ namespace ReSharperDemo
 
         }
 
-        private static void DisplayPersonList(List<Person> persons)
+        private static void DisplayPersonList(List<resharperPerson> persons)
         {
             //Demo DataTips
             foreach (var person in persons)
