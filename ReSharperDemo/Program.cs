@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using ReSharperDemo.Models;
 
 namespace ReSharperDemo
 {
@@ -15,6 +15,8 @@ namespace ReSharperDemo
             Senior
         }
 
+        private static NorthwindContext _db;
+
         static void Main(string[] args)
         {
             //Quick fix to make method static
@@ -22,7 +24,8 @@ namespace ReSharperDemo
 
             //var persons = new List<Person> {new Person {Age = 10, Name = "Hugin"}, new Person {Age = 22, Name = "Leo"}};
 
-            //DisplayPersonList(persons);
+            _db = new NorthwindContext();
+            DisplayProducts();
         }
 
         public void SmartCompletion()
@@ -30,22 +33,24 @@ namespace ReSharperDemo
             //var a = new XmlTextWriter("dwd", Encoding.UTF7);
         }
 
-        //public static void CreateClass()
-        //{
-        //    var person = new Person();
-        //    person.Name = "Hugin";
-        //    person.Age = 34;
+        public static void CreateClass()
+        {
+            //var person = new Person();
+            //person.Name = "Hugin";
+            //person.Age = 34;
 
-        //}
+        }
 
-        //private static void DisplayPersonList(List<resharperPerson> persons)
-        //{
-        //    //Demo DataTips
-        //    foreach (var person in persons)
-        //    {
-        //        var a = person.Name + "dwd";
-        //    }
-        //}
+        private static void DisplayProducts()
+        {
+            //Demo DataTips
+            //var products = _db.Products.ToList();
+            
+            //foreach (var product in products)
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
+        }
 
         void ConvertToLinq()
         {
@@ -76,10 +81,11 @@ namespace ReSharperDemo
 
 
         //Code analysis for return type and auto import usings
-        //public static string[] GetStrings(string[] strings)
-        //{
-        //    //return strings.Where(s => s.Length > 4);
-        //}
+        public static Customer[] GetCustomers(Customer[] customer)
+        {
+            //return customer.Where(c => c.CustomerId == "new");
+            return null;
+        }
 
 
         public static void MarkAsInjectedLanguage()
