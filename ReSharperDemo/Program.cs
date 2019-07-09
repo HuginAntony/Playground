@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
-using Console = System.Console;
+﻿using System.Collections.Generic;
 
 namespace ReSharperDemo
 {
@@ -78,7 +74,13 @@ namespace ReSharperDemo
             return null;
         }
 
-      
+
+        //Code analysis for return type and auto import usings
+        public static string[] GetStrings(string[] strings)
+        {
+            //return strings.Where(s => s.Length > 4);
+        }
+
 
         public static void MarkAsInjectedLanguage()
         {
