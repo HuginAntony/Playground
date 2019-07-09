@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace ReSharperDemo.Models
 {
-    public partial class Customer
+    public partial class Customers
     {
-        public Customer()
+        public Customers()
         {
             CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
             Orders = new HashSet<Orders>();

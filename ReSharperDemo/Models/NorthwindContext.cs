@@ -18,7 +18,7 @@ namespace ReSharperDemo.Models
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }
@@ -72,7 +72,7 @@ namespace ReSharperDemo.Models
                     .HasColumnName("CustomerTypeID")
                     .HasMaxLength(10);
 
-                entity.HasOne(d => d.Customer)
+                entity.HasOne(d => d.Customers)
                     .WithMany(p => p.CustomerCustomerDemo)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
@@ -98,7 +98,7 @@ namespace ReSharperDemo.Models
                 entity.Property(e => e.CustomerDesc).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<Customer>(entity =>
+            modelBuilder.Entity<Customers>(entity =>
             {
                 entity.HasKey(e => e.CustomerId);
 
@@ -306,7 +306,7 @@ namespace ReSharperDemo.Models
 
                 entity.Property(e => e.ShippedDate).HasColumnType("datetime");
 
-                entity.HasOne(d => d.Customer)
+                entity.HasOne(d => d.Customers)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Orders_Customers");

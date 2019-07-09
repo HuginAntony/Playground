@@ -81,9 +81,9 @@ namespace ReSharperDemo
 
 
         //Code analysis for return type and auto import usings
-        public static Customer[] GetCustomers(Customer[] customer)
+        public static Customers[] GetCustomers(Customers[] customers)
         {
-            //return customer.Where(c => c.CustomerId == "new");
+            //return customers.Where(c => c.CustomerId == "new");
             return null;
         }
 
