@@ -30,22 +30,22 @@ namespace ReSharperDemo
             //var a = new XmlTextWriter("dwd", Encoding.UTF7);
         }
 
-        public static void CreateClass()
-        {
-            var person = new Person();
-            person.Name = "Hugin";
-            person.Age = 34;
+        //public static void CreateClass()
+        //{
+        //    var person = new Person();
+        //    person.Name = "Hugin";
+        //    person.Age = 34;
 
-        }
+        //}
 
-        private static void DisplayPersonList(List<resharperPerson> persons)
-        {
-            //Demo DataTips
-            foreach (var person in persons)
-            {
-                var a = person.Name + "dwd";
-            }
-        }
+        //private static void DisplayPersonList(List<resharperPerson> persons)
+        //{
+        //    //Demo DataTips
+        //    foreach (var person in persons)
+        //    {
+        //        var a = person.Name + "dwd";
+        //    }
+        //}
 
         void ConvertToLinq()
         {
@@ -76,10 +76,10 @@ namespace ReSharperDemo
 
 
         //Code analysis for return type and auto import usings
-        public static string[] GetStrings(string[] strings)
-        {
-            //return strings.Where(s => s.Length > 4);
-        }
+        //public static string[] GetStrings(string[] strings)
+        //{
+        //    //return strings.Where(s => s.Length > 4);
+        //}
 
 
         public static void MarkAsInjectedLanguage()

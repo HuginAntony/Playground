@@ -9,7 +9,6 @@ using Couchbase.Configuration.Client;
 using Couchbase.Core;
 using log4net;
 using log4net.Config;
-using WorldWideImporters;
 using WWI;
 
 namespace CouchBaseCaching
@@ -19,7 +18,7 @@ namespace CouchBaseCaching
         private static ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static Cluster Cluster;
         private static IBucket _bucket;
-        private static ImportersModel db = new ImportersModel();
+        private static WWIModel db = new WWIModel();
 
         static void Main(string[] args)
         {
@@ -35,7 +34,7 @@ namespace CouchBaseCaching
 
             CreateGamesCatalogue();
 
-            var cities = db.Cities.ToList();
+            var cities = db.Customers.ToList();
 
             //ReadRecordsFromSQL(cities);
 
@@ -82,23 +81,23 @@ namespace CouchBaseCaching
             }
         }
 
-        private static void ReadRecordsFromSQL(List<City> cities)
-        {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+        //private static void ReadRecordsFromSQL(List<City> cities)
+        //{
+        //    var stopwatch = new Stopwatch();
+        //    stopwatch.Start();
 
-            foreach (var city in cities)
-            {
-                //Read records
-                var thisCity = db.Cities.SingleOrDefault(c => c.CityID == city.CityID);
-                var msg = string.Format("{0} {1}!", thisCity.CityID, thisCity.CityName);
+        //    foreach (var city in cities)
+        //    {
+        //        //Read records
+        //        var thisCity = db.Cities.SingleOrDefault(c => c.CityID == city.CityID);
+        //        var msg = string.Format("{0} {1}!", thisCity.CityID, thisCity.CityName);
 
-                Console.WriteLine(msg);
-            }
+        //        Console.WriteLine(msg);
+        //    }
 
-            stopwatch.Stop();
-            Console.WriteLine("Time take to read {0} records from the SQL {1}", cities.Count, stopwatch.Elapsed);
-        }
+        //    stopwatch.Stop();
+        //    Console.WriteLine("Time take to read {0} records from the SQL {1}", cities.Count, stopwatch.Elapsed);
+        //}
 
         private static void ReadAllRecordsFromCache()
         {
@@ -252,5 +251,11 @@ namespace CouchBaseCaching
             stopwatch.Stop();
             Console.WriteLine("Time take to insert {0} records into the cache {1}", cities.Count, stopwatch.Elapsed);
         }
+    }
+
+    internal class City
+    {
+        public string CityID { get; set; }
+        public string CityName { get; set; }
     }
 }

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouchBaseCaching", "CouchBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogToGraylog", "LogToGraylog\LogToGraylog.csproj", "{0BFC0B12-1063-48EF-998A-718A4ED04E6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldWideImporters", "WorldWideImporters\WorldWideImporters.csproj", "{5AEE9225-F0F5-4623-B593-67D29F7A7B1B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI", "WWI\WWI.csproj", "{5F6E3EF0-2A7D-4AB3-9AE8-C7A0A64BEB2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadPDF", "PDFReader\ReadPDF.csproj", "{4F54C6F2-D97B-46BB-B1E1-3FCAE0307381}"
@@ -35,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETL.DataAccess", "ETL.DataA
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodejsTypescript", "NodejsTypescript\NodejsTypescript.njsproj", "{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharperDemo", "ReSharperDemo\ReSharperDemo.csproj", "{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReSharperDemo", "ReSharperDemo\ReSharperDemo.csproj", "{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +57,6 @@ Global
 		{0BFC0B12-1063-48EF-998A-718A4ED04E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BFC0B12-1063-48EF-998A-718A4ED04E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BFC0B12-1063-48EF-998A-718A4ED04E6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5AEE9225-F0F5-4623-B593-67D29F7A7B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5AEE9225-F0F5-4623-B593-67D29F7A7B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5AEE9225-F0F5-4623-B593-67D29F7A7B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5AEE9225-F0F5-4623-B593-67D29F7A7B1B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F6E3EF0-2A7D-4AB3-9AE8-C7A0A64BEB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F6E3EF0-2A7D-4AB3-9AE8-C7A0A64BEB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F6E3EF0-2A7D-4AB3-9AE8-C7A0A64BEB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU

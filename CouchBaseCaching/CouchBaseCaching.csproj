@@ -88,10 +88,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WorldWideImporters\WorldWideImporters.csproj">
-      <Project>{5aee9225-f0f5-4623-b593-67d29f7a7b1b}</Project>
-      <Name>WorldWideImporters</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WWI\WWI.csproj">
       <Project>{5f6e3ef0-2a7d-4ab3-9ae8-c7a0a64beb2f}</Project>
       <Name>WWI</Name>
