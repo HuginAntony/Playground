@@ -1,4 +1,7 @@
-﻿using ReSharperDemo.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using ReSharperDemo.Models;
 
 namespace ReSharperDemo
 {
@@ -25,6 +28,7 @@ namespace ReSharperDemo
             //var persons = new List<Person> {new Person {Age = 10, Name = "Hugin"}, new Person {Age = 22, Name = "Leo"}};
 
             _db = new NorthwindContext();
+
             DisplayProducts();
         }
 
@@ -87,6 +91,13 @@ namespace ReSharperDemo
             return null;
         }
 
+        public void RegularExpressions()
+        {
+            var regex = Regex.Match("uuiwfw", @"[a-z]\d{3}");
+
+            var r = Regex.Match("uuiwfw", @"(?<name>)");
+
+        }
 
         public static void MarkAsInjectedLanguage()
         {
