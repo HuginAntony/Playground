@@ -4,18 +4,20 @@ using System.Text;
 
 namespace ReSharperDemo
 {
-    public abstract class Employee
+    //Insert constructor with properties.
+    //Demonstrate formatting memebers
+    public class Employee
     {
         public string Name { get; set; }
         public string Department { get; set; }
         public virtual int Age { get; set; }
         public decimal Salary { get; set; }
 
-        public abstract decimal CalculateSalary { get; set; }
+        //public abstract decimal CalculateSalary { get; set; }
     }
 
     class Developer : Employee
     {
-        public override decimal CalculateSalary { get; set; }
+        //public override decimal CalculateSalary { get; set; }
     }
 }
