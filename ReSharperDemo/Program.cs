@@ -16,6 +16,8 @@ namespace ReSharperDemo
 
             //Quick fix to make method public
             DataTips.DisplayProducts();
+
+            //StackTraceExplorer.GetNumber();
         }
     }
 }
