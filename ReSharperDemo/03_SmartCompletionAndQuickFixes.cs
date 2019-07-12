@@ -18,7 +18,7 @@ namespace ReSharperDemo
         }//Highlight closing braces
 
         public decimal ConvertStatement(decimal value)
-        {
+        {   
             switch (value)
             {
                 case 50:
@@ -36,6 +36,8 @@ namespace ReSharperDemo
 
         public static void MarkAsInjectedLanguage()
         {
+            //Bug: this is a hack
+
             var css = @".text{
                                 color: #434;
                                 margin: 0;
