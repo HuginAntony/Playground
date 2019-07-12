@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ReSharperDemo.Models;
 
 namespace ReSharperDemo
@@ -15,7 +16,23 @@ namespace ReSharperDemo
                 sum += num;
             }
         }//Highlight closing braces
-        
+
+        public decimal ConvertStatement(decimal value)
+        {
+            switch (value)
+            {
+                case 50:
+                    return 0.50M;
+                case 20:
+                    return 0.20M;
+                case 10:
+                    return 0.10M;
+                case 5:
+                    return 0.05M;
+                default:
+                    return 0;
+            }
+        }
 
         public static void MarkAsInjectedLanguage()
         {
@@ -43,6 +60,7 @@ namespace ReSharperDemo
         public void SuggestType()
         {
             //var a = new XmlTextWriter("dwd", Encoding.UTF7);
+            var formattedDate = DateTime.Now.ToString();
         }
 
         public static void CreateClass()
