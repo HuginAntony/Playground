@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ReSharperDemo
@@ -10,6 +11,9 @@ namespace ReSharperDemo
 
         static void Main(string[] args)
         {
+            //DateTime.Today comment
+            var today = DateTime.Today.ToString("yyyy MMMM dd");
+
             //Quick fix to make method public
             DataTips.DisplayProducts();
         }
