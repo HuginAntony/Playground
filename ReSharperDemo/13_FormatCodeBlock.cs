@@ -10,5 +10,14 @@ namespace ReSharperDemo
             if (message == null) message = "Message cannot be null";
             return $"{message}, {name}!";
         }
+
+        public void SurroundWithQuotes()
+        {
+            const string message = "This is the message";
+
+            //Ctrl+Alt+J
+            Console.WriteLine(message);
+            Console.WriteLine(message);
+        }
     }
 }
