@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ReSharperDemo.Models;
 
@@ -11,12 +12,38 @@ namespace ReSharperDemo
             var n = Enumerable.Range(1, 20);
             int sum = 0;
 
+            //1
             foreach (var num in n)
             {
                 sum += num;
             }
+
+            //2
+            var numbers = new List<int> { 6, 2, 8, 3 };
+            int sumAgg = numbers.Aggregate(func: (result, item) => result + item);
+
+            //3
+            int s = 0;
+            for (var i = 0; i < numbers.Count; i++)
+            {
+                var number = numbers[i];
+                s += number;
+            }
+
+            //4
+            IEnumerable<Developer> developers = new List<Developer>();
+            int count = 0;
+            foreach (var developer in developers)
+            {
+                if (developer.Age == 30)
+                {
+                    count++;
+                }
+            }
+
         }//Highlight closing braces
 
+        
         public decimal ConvertStatement(decimal value)
         {
             var airline = Airlines.Delta;
