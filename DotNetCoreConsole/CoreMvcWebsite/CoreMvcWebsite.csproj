@@ -15,11 +15,6 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CouchBaseCaching\CouchBaseCaching.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
