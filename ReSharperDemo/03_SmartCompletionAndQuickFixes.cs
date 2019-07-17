@@ -18,22 +18,30 @@ namespace ReSharperDemo
         }//Highlight closing braces
 
         public decimal ConvertStatement(decimal value)
-        {   
-            switch (value)
-            {
-                case 50:
-                    return 0.50M;
-                case 20:
-                    return 0.20M;
-                case 10:
-                    return 0.10M;
-                case 5:
-                    return 0.05M;
-                default:
-                    return 0;
-            }
+        {
+            var airline = Airlines.Delta;
+
+            if (value == 50)
+                return 0.50M;
+            else if (value == 20)
+                return 0.20M;
+            else if (value == 10)
+                return 0.10M;
+            else if (value == 5)
+                return 0.05M;
+            else
+                return 0;
         }
 
+        public void Recursive(int n)
+        {
+            if (n > 20)
+            {
+                return;
+            }
+
+            Recursive(n+1);
+        }
         public static void MarkAsInjectedLanguage()
         {
             //Bug: this is a hack
@@ -45,11 +53,14 @@ namespace ReSharperDemo
         }
 
         //Move to file. Intialize values.
-        public enum Developer
+        public enum Airlines
         {
-            Junior,
-            Intermediate,
-            Senior
+            Mango,
+            Kulula,
+            Delta,
+            Emirates,
+            AmericanAirlines,
+            Qatar
         }
 
         //Code analysis for return type and auto import usings

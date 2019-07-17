@@ -2,6 +2,7 @@
 
 namespace ReSharperDemo
 {
+    //Navigate to overriding members
     class Emirates : Booking
     {
         public string AssignRandomSeating(int i)
@@ -40,17 +41,44 @@ namespace ReSharperDemo
 
         public override string GetLocation()
         {
+           
+
             return "Emirates" + base.GetLocation();
+        }
+
+        public void PrintMessage()
+        {
+            for (int i = 0; i < NumOfPax; i++)
+            {
+
+                if (FrequentFlyer)
+                    continue;
+
+                if (!FrequentFlyer)
+                    break;
+
+                if (Total > 2000)
+                    return;
+            }
+
+            var message = "After the for loop";
         }
     }
 
-    public class Booking
+    public interface IBooking
+    {
+        void CreateBooking();
+    }
+
+    public class Booking : IBooking
     {
         public string GdsReference { get; set; }
         public int NumOfPax { get; set; }
         public decimal Total { get; set; }
         public bool FrequentFlyer { get; set; }
 
+        //Navigate to member overloads
+        //Left gutter states which interface is implemented
         public void CreateBooking()
         {
             GdsReference = "JD67HD";
@@ -74,12 +102,29 @@ namespace ReSharperDemo
                 return Total * 1.1m;
             }
 
+            //Highlight usages ot Total
+            var newTotal = Total + 100;
+
+            CreateBooking();
+
+            Total = Total - CalculateDiscount();
+
+            if (GdsReference != null)
+            {
+                Total = newTotal * 2;
+            }
+
             return Total;
         }
 
         public virtual string GetLocation()
         {
             return "Here";
+        }
+
+        public void CallOtherMethods()
+        {
+            CalculateDiscount();
         }
     }
 }
