@@ -40,6 +40,11 @@ namespace CoreMvcWebsite.Controllers
             return View();
         }
 
+        public IActionResult GameInfo()
+        {
+            return PartialView("_GameInfoPartial");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
