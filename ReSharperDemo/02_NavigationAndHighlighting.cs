@@ -3,7 +3,7 @@
 namespace ReSharperDemo
 {
     //Navigate to overriding members
-    class Emirates : Booking
+    public class Emirates : Booking
     {
         public string AssignRandomSeating(int i)
         {
@@ -50,7 +50,7 @@ namespace ReSharperDemo
 
     //Navigate to overriding members
     //Navigate to Extension Methods. See .ToXml() which is custom to this project
-    class SAA : Booking
+    public class SAA : Booking
     {
         public override decimal CalculateDiscount()
         {

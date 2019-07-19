@@ -33,11 +33,11 @@ namespace ReSharperDemo
             }
 
             //4
-            IEnumerable<Developer> developers = new List<Developer>();
+            IEnumerable<Booking> developers = new List<Booking>();
             int count = 0;
             foreach (var developer in developers)
             {
-                if (developer.Age == 30)
+                if (developer.NumOfPax == 30)
                 {
                     count++;
                 }
@@ -122,5 +122,18 @@ namespace ReSharperDemo
             //var persons = new List<Person> {new Person {Age = 10, Name = "Hugin"}, new Person {Age = 22, Name = "Leo"}};
 
         }
+    }
+
+    //Invoke Alt+Insert - Insert constructor with properties.
+    //Demonstrate formatting members
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string Department { get; set; }
+        public virtual int Age { get; set; }
+        public decimal Salary { get; set; }
+
+        //Create methods and properties using mnemonics
+
     }
 }

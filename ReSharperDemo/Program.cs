@@ -13,7 +13,7 @@ namespace ReSharperDemo
             var today = DateTime.Today.ToString("yyyy MMMM dd");
 
             //Quick fix to make method public
-            DataTips.DisplayProducts();
+            //DataTips.DisplayProducts();
 
             //StackTraceExplorer.GetNumber();
         }
