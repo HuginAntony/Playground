@@ -146,4 +146,27 @@ namespace ReSharperDemo
             CalculateDiscount();
         }
     }
+
+    /// <summary>
+    /// This class needs to be implemented
+    /// </summary>
+    /// <remarks>
+    /// <para>You can add your own implementation</para>
+    /// <para>similar to the Emirates class</para>
+    /// </remarks>
+    /// <seealso cref="Emirates"/>
+    class Mango : Booking
+    {
+
+        /// <summary>
+        /// Gets the detailed flight information
+        /// </summary>
+        /// <param name="carrier">The 2 letter carrier code</param>
+        /// <param name="log">Enable logging</param>
+        /// <returns>Flight information if the operation completes successfully</returns>
+        public string FlightInfo(string carrier, bool log)
+        {
+            return "";
+        }
+    }
 }
