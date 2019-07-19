@@ -35,6 +35,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodejsTypescript", "NodejsT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReSharperDemo", "ReSharperDemo\ReSharperDemo.csproj", "{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerWebApi", "DockerWebApi\DockerWebApi.csproj", "{8FFBB354-2633-47C4-AF94-2D04ED66D66B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26ACB36B-CCD7-4F82-AFB4-5688B0D1AC61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

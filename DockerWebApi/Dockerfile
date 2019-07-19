@@ -15,3 +15,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime
 WORKDIR /app
 COPY --from=build /app/aspnetapp/out ./
 ENTRYPOINT ["dotnet", "DockerWebApi.dll"]
+
+
+#docker build -t hugin/playground .
+#docker push hugin/playground
