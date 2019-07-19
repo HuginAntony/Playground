@@ -21,7 +21,13 @@ namespace ReSharperDemo
             return "A1";
         }
 
+        //Alt+` navigate to base symbols.
         public override decimal CalculateDiscount()
+        {
+            return Total * 1.2m;
+        }
+
+        public decimal CalculateReward()
         {
             return Total * 1.2m;
         }
@@ -30,8 +36,20 @@ namespace ReSharperDemo
         {
             return "Emirates" + base.GetLocation();
         }
+
+        public void GetLatitude()
+        {
+
+        }
+
+        public void GetLongitude()
+        {
+            
+        }
     }
 
+    //Navigate to overriding members
+    //Navigate to Extension Methods. See .ToXml() which is custom to this project
     class SAA : Booking
     {
         public override decimal CalculateDiscount()
@@ -41,8 +59,6 @@ namespace ReSharperDemo
 
         public override string GetLocation()
         {
-           
-
             return "Emirates" + base.GetLocation();
         }
 
@@ -51,6 +67,7 @@ namespace ReSharperDemo
             for (int i = 0; i < NumOfPax; i++)
             {
 
+                //Invoke the Navigate To menu and select Control Flow on each of the for loop keywords below
                 if (FrequentFlyer)
                     continue;
 
@@ -65,6 +82,7 @@ namespace ReSharperDemo
         }
     }
 
+    //Navigate to Derived Symbols
     public interface IBooking
     {
         void CreateBooking();
@@ -96,13 +114,14 @@ namespace ReSharperDemo
 
         public virtual decimal CalculateDiscount()
         {
-            //Can do Complete statement
+            //Perform Complete statement by typing the first few characters of the if statement below. Then Ctrl+Shift+Enter
             if (FrequentFlyer)
             {
                 return Total * 1.1m;
             }
 
-            //Highlight usages ot Total
+            //Invoke Highlight Usages of Total. Place the cursor on Total below and press Ctrl+Shift+F7
+            //See read and write usages highlighted in different colours
             var newTotal = Total + 100;
 
             CreateBooking();

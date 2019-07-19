@@ -7,11 +7,13 @@ namespace ReSharperDemo
 {
     class SmartCompletionAndQuickFixes
     {
+        //Alt+Enter to get quick fixes
         private void ConvertToLinq()
         {
             var n = Enumerable.Range(1, 20);
             int sum = 0;
 
+            
             //1
             foreach (var num in n)
             {
@@ -48,6 +50,7 @@ namespace ReSharperDemo
         {
             var airline = Airlines.Delta;
 
+            //Alt+Enter to convert to a Switch statement
             if (value == 50)
                 return 0.50M;
             else if (value == 20)
@@ -67,6 +70,7 @@ namespace ReSharperDemo
                 return;
             }
 
+            //Shows that the call is recursive
             Recursive(n+1);
         }
         public static void MarkAsInjectedLanguage()
@@ -79,7 +83,7 @@ namespace ReSharperDemo
                               }";
         }
 
-        //Move to file. Intialize values.
+        //Invoke specify Enum member values. F6 to Move to file
         public enum Airlines
         {
             Mango,
@@ -90,19 +94,25 @@ namespace ReSharperDemo
             Qatar
         }
 
-        //Code analysis for return type and auto import usings
+        
         public Customers[] GetCustomers(Customers[] customers)
         {
             //return customers.Where(c => c.CustomerId == "new");
+
+            //Code analysis for return type and auto import using
+            //Remove the null and start typing the above Linq query
             return null;
         }
 
         public void SuggestType()
         {
             //var a = new XmlTextWriter("dwd", Encoding.UTF7);
+            //Start typing the above line, after the comma press Ctrl+Shift+Space to get the Encoding num values
+
             var formattedDate = DateTime.Now.ToString();
         }
 
+        //Alt+Enter on Person and its properties to create them
         public static void CreateClass()
         {
             //var person = new Person();
