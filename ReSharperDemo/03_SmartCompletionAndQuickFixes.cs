@@ -115,7 +115,8 @@ namespace ReSharperDemo
         //Alt+Enter on Person and its properties to create them
         public static void CreateClass()
         {
-            //var person = new Person();
+            var employee = new Employees();
+            //var person = new Person(employee);
             //person.Name = "Hugin";
             //person.Age = 34;
 

@@ -10,9 +10,9 @@ namespace ReSharperDemo
         {
             NorthwindContext _db = new NorthwindContext();
 
-            //Demo DataTips
             var products = _db.Products.ToList();
 
+            //Demo DataTips. Insert a breakpoint and set datatips on 2 properties of the oroducts variable above. 
             foreach (var product in products)
             {
                 Console.WriteLine(product.ProductName);

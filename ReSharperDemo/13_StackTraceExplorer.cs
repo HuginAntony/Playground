@@ -1,7 +1,11 @@
-﻿namespace ReSharperDemo
+﻿using System;
+
+namespace ReSharperDemo
 {
-    class StackTraceExplorer
+    public class StackTraceExplorer
     {
+        //Call this method and an exception is thrown. Copy the exception to the clipboard
+        //Press Ctrl+Shift+E to invoke the StackTrace Explorer
         public static int GetNumber()
         {
             var n = 0;

@@ -6,6 +6,7 @@ namespace ReSharperDemo
     {
         public void GetUtcTime()
         {
+            //Invoke Structural Search, type DateTime.Today and click on Find. See usages of DateTime.Today
             var today = DateTime.Today;
         }
 

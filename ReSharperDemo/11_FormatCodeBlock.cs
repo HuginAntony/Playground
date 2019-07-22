@@ -15,7 +15,8 @@ namespace ReSharperDemo
         {
             const string message = "This is the message";
 
-            //Ctrl+Alt+J
+            //Create custom surround with template using ReSharper. Ctrl+Alt+J select Quotes.
+            //Visual Studio requires multiple lines of XML to create a simple snippet
             Console.WriteLine(message);
             Console.WriteLine(message);
         }

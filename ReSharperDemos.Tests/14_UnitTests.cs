@@ -32,5 +32,17 @@ namespace ReSharperDemos.Tests
         //    var result = booking.FurtherDiscount(10,20);
         //    Assert.AreEqual(30, result);
         //}
+        //
+
+        [TestMethod]
+        public void Should_Throw_An_Exception()
+        {
+            var number = StackTraceExplorer.GetNumber();
+
+            
+            Assert.AreEqual(30, number);
+        }
+
+
     }
 }

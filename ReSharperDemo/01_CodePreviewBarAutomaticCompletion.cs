@@ -1,9 +1,11 @@
-﻿using ReSharperDemo;
+﻿using System;
+using ReSharperDemo;
 
 public class Flights
 {
     public void CallEmirates()
     {
+        var total = 200;
         var emirates = new Emirates();
 
         emirates.GetLocation();
@@ -15,5 +17,10 @@ public class Flights
         //Invoke quick info by pressing Ctrl+Q on the class and the method name
         var mango = new Mango();
         mango.FlightInfo("JE", true);
+
+        //Alt+Enter change all local
+        //Console.WriteLine(abc);
+        //Console.WriteLine(abc);
+        //Console.WriteLine(abc);
     }
 }
