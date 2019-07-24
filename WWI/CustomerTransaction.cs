@@ -1,10 +1,7 @@
 namespace WWI
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Sales.CustomerTransactions")]
     public partial class CustomerTransaction

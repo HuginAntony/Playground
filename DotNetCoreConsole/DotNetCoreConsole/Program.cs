@@ -5,6 +5,7 @@ namespace DotNetCoreConsole
 {
     class Program
     {
+        //Publish messages to RabbitMQ with MassTransit
         static void Main(string[] args)
         {
             var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>

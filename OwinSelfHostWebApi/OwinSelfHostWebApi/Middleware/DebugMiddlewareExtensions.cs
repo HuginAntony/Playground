@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Owin;
 using Pluralsight.Owin.Demo.Middleware;
 
 namespace Owin

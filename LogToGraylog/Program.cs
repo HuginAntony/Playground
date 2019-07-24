@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CouchBaseCaching;
 using log4net;
 using log4net.Config;
@@ -17,13 +14,7 @@ namespace LogToGraylog
         static void Main(string[] args)
         {
             XmlConfigurator.Configure();
-
-            var filename = "c:\\mytestfile.txt";
-
             LogCustomerInfo();
-           
-
-
             Console.ReadLine();
         }
 
@@ -43,7 +34,7 @@ namespace LogToGraylog
                     InvoiceDate = customer.TransactionDate
                 };
 
-                //_log.Warn(new { message = "Found transaction invoice for customer", customerId = c.CustomerId, customer = Newtonsoft.Json.JsonConvert.SerializeObject(c) });
+                _log.Warn(new { message = "Found transaction invoice for customer", customerId = c.CustomerId, customer = Newtonsoft.Json.JsonConvert.SerializeObject(c) });
                 try
                 {
                     var file = File.Open(c.CustomerName, FileMode.Open);

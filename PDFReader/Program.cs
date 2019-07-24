@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 using Tesseract;
-using Path = System.IO.Path;
 
 namespace ReadPDF
 {
@@ -16,10 +11,6 @@ namespace ReadPDF
     {
         static void Main(string[] args)
         {
-            //var pdfReader = new PdfReader(@"f:\sample.pdf"); 
-            //byte[] pageContent = pdfReader.GetPageContent(1);
-            //byte[] utf8 = Encoding.Convert(Encoding.Default, Encoding.UTF8, pageContent);
-            //string textFromPage = Encoding.UTF8.GetString(utf8);
             ReadImageText();
 
             using (PdfReader reader = new PdfReader(@"f:\MyBill.pdf"))

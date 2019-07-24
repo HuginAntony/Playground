@@ -32,7 +32,6 @@ namespace CouchBaseCaching
 
             _bucket = ClusterHelper.GetBucket("Games");
 
-            CreateGamesCatalogue();
 
             var cities = db.Customers.ToList();
 

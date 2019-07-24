@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.Http;
 using System.Web.Http.Results;
 using Microsoft.Owin.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using OwinSelfHostWebApi;
 using OwinSelfHostWebApi.Controllers;
-using RichardSzalay.MockHttp;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;

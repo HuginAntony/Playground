@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CoreMvcWebsite.Models;
 using Couchbase;
-using Couchbase.Authentication;
-using Couchbase.Configuration.Client;
 using Couchbase.Core;
-using Couchbase.Extensions.DependencyInjection;
 using CouchBaseCaching;
 
 namespace CoreMvcWebsite.Controllers

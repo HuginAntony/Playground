@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Microsoft.Owin.Security.Cookies;
+﻿using Microsoft.Owin.Security.Cookies;
 using Owin;
 using OwinSelfHostWebApi.Configurations;
-using Pluralsight.Owin.Demo.Middleware;
 
 namespace OwinSelfHostWebApi
 {
