@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿using System;
+using Microsoft.VisualBasic.CompilerServices;
 using RabbitMQ.Client.Impl;
 
 namespace RabbitMQDemo
@@ -8,6 +9,8 @@ namespace RabbitMQDemo
         static void Main(string[] args)
         {
             RabbitMqFactory rabbitMqFactory = new RabbitMqFactory();
+
+            Console.WriteLine("Publishing messages to RabbitMQ");
 
             for (int i = 0; i < 20; i++)
             {
@@ -55,6 +58,8 @@ namespace RabbitMQDemo
 
                 rabbitMqFactory.SendMessage(m, m.GetType().Name);
             }
+            
+            Console.WriteLine("Completed publishing messages to RabbitMQ");
         }
     }
 }

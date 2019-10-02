@@ -1,12 +1,24 @@
-﻿using RabbitMQ.Client;
+﻿using System.IO;
+using Microsoft.Extensions.Configuration;
+using RabbitMQ.Client;
 
 namespace RabbitMQDemo
 {
+    public abstract class RabbitMqSettings
+    {
+        public string Host { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string ExchangeName { get; set; }
+        public string ExchangeType { get; set; }
+    }
     public class RabbitMqFactory
     {
         private static ConnectionFactory _factory;
         private static IConnection _connection;
         private static IModel _channel;
+        private static IConfigurationRoot _configuration;
+        private static RabbitMqSettings _rabbitMqSettings;
 
         private const string ExchangeName = "Entertainment";
         private const string Movies = "Movies";
@@ -15,6 +27,13 @@ namespace RabbitMQDemo
 
         public RabbitMqFactory()
         {
+            var builder = new ConfigurationBuilder()
+                          .SetBasePath(Directory.GetCurrentDirectory())
+                          .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+           _configuration = builder.Build();
+
+           _rabbitMqSettings = _configuration.GetSection("RabbitMqSettings").Get<RabbitMqSettings>();
             CreateConnection();
         }
 
@@ -22,14 +41,14 @@ namespace RabbitMQDemo
         {
             _factory = new ConnectionFactory
             {
-                HostName = "localhost",
-                UserName = "guest",
-                Password = "guest"
+                HostName = _rabbitMqSettings.Host,
+                UserName = _rabbitMqSettings.Username,
+                Password = _rabbitMqSettings.Password
             };
 
             _connection = _factory.CreateConnection();
             _channel = _connection.CreateModel();
-            _channel.ExchangeDeclare(ExchangeName, "topic");
+            _channel.ExchangeDeclare(ExchangeName, _configuration["RabbitMqExchangeType"]);
 
             _channel.QueueDeclare(Movies, true, false, false, null);
             _channel.QueueDeclare(Music, true, false, false, null);
