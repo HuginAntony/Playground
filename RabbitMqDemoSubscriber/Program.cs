@@ -38,6 +38,8 @@ namespace RabbitMqDemoSubscriber
 
         private static void ProcessMessages()
         {
+            Console.WriteLine("Waiting for messages...");
+
             _channel.ExchangeDeclare(ExchangeName, "topic");
             _channel.QueueDeclare(GamesQueue, true, false, false, null);
 
@@ -52,13 +54,10 @@ namespace RabbitMqDemoSubscriber
 
                 Console.WriteLine("Retrieved Movie - Routing Key <{0}> : {1} : {2}", routingKey, message.Name, message.Year);
 
-                        // ... process the message
-                        _channel.BasicAck(ea.DeliveryTag, false);
+                _channel.BasicAck(ea.DeliveryTag, false);
             };
 
             _channel.BasicConsume(GamesQueue, false, consumer);
-
-            Console.WriteLine("\r\n\r\nWaiting for messages...");
         }
         public void Close()
         {
