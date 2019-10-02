@@ -4,26 +4,12 @@ using RabbitMQ.Client;
 
 namespace RabbitMQDemo
 {
-    public abstract class RabbitMqSettings
-    {
-        public string Host { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string ExchangeName { get; set; }
-        public string ExchangeType { get; set; }
-    }
     public class RabbitMqFactory
     {
         private static ConnectionFactory _factory;
         private static IConnection _connection;
         private static IModel _channel;
-        private static IConfigurationRoot _configuration;
         private static RabbitMqSettings _rabbitMqSettings;
-
-        private const string ExchangeName = "Entertainment";
-        private const string Movies = "Movies";
-        private const string Music = "Music";
-        private const string Games = "Games";
 
         public RabbitMqFactory()
         {
@@ -31,9 +17,9 @@ namespace RabbitMQDemo
                           .SetBasePath(Directory.GetCurrentDirectory())
                           .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-           _configuration = builder.Build();
+           var configuration = builder.Build();
 
-           _rabbitMqSettings = _configuration.GetSection("RabbitMqSettings").Get<RabbitMqSettings>();
+           _rabbitMqSettings = configuration.GetSection("RabbitMqSettings").Get<RabbitMqSettings>();
             CreateConnection();
         }
 
@@ -48,15 +34,14 @@ namespace RabbitMQDemo
 
             _connection = _factory.CreateConnection();
             _channel = _connection.CreateModel();
-            _channel.ExchangeDeclare(ExchangeName, _configuration["RabbitMqExchangeType"]);
 
-            _channel.QueueDeclare(Movies, true, false, false, null);
-            _channel.QueueDeclare(Music, true, false, false, null);
-            _channel.QueueDeclare(Games, true, false, false, null);
+            _channel.ExchangeDeclare(_rabbitMqSettings.ExchangeName, _rabbitMqSettings.ExchangeType);
 
-            _channel.QueueBind(Movies, ExchangeName, Movies);
-            _channel.QueueBind(Music, ExchangeName, Music);
-            _channel.QueueBind(Games, ExchangeName, Games);
+            foreach (var queue in _rabbitMqSettings.Queues)
+            {
+                _channel.QueueDeclare(queue, true, false, false, null);
+                _channel.QueueBind(queue, _rabbitMqSettings.ExchangeName, queue);
+            }
         }
 
         public void SendMessage<T>(T message, string routingKey)
@@ -67,7 +52,7 @@ namespace RabbitMQDemo
             props.ContentType = "application/json";
             props.DeliveryMode = 2;
 
-            _channel.BasicPublish(ExchangeName, routingKey, props, messageBytes);
+            _channel.BasicPublish(_rabbitMqSettings.ExchangeName, routingKey, props, messageBytes);
         }
         public void Close()
         {
