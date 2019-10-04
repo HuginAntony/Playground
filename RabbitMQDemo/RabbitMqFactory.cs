@@ -35,6 +35,11 @@ namespace RabbitMQDemo
             _connection = _factory.CreateConnection();
             _channel = _connection.CreateModel();
 
+            SetupExchangesAndQueues();
+        }
+
+        private static void SetupExchangesAndQueues()
+        {
             _channel.ExchangeDeclare(_rabbitMqSettings.ExchangeName, _rabbitMqSettings.ExchangeType);
 
             foreach (var queue in _rabbitMqSettings.Queues)
@@ -44,7 +49,7 @@ namespace RabbitMQDemo
             }
         }
 
-        public void SendMessage<T>(T message, string routingKey)
+        public void SendMessage<T>(T message, string routingKey, bool useRoutingKey = false)
         {
             byte[] messageBytes = message.Serialize();
 
@@ -52,7 +57,8 @@ namespace RabbitMQDemo
             props.ContentType = "application/json";
             props.DeliveryMode = 2;
 
-            _channel.BasicPublish(_rabbitMqSettings.ExchangeName, routingKey, props, messageBytes);
+            _channel.BasicPublish(_rabbitMqSettings.ExchangeName, useRoutingKey ? routingKey : "", props, messageBytes);
+
         }
         public void Close()
         {
