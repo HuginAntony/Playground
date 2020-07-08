@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreConsole", "DotNet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreMvcWebsite", "DotNetCoreConsole\CoreMvcWebsite\CoreMvcWebsite.csproj", "{36BE398E-9CB0-4007-A6FF-4A9D59BD65E2}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodejsTypescript", "NodejsTypescript\NodejsTypescript.njsproj", "{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerWebApi", "DockerWebApi\DockerWebApi.csproj", "{8FFBB354-2633-47C4-AF94-2D04ED66D66B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Service", "My.Service\My.Service.csproj", "{021A2104-38DE-4293-A63F-1F62D45864B9}"
@@ -30,6 +28,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQDemo", "RabbitMQDemo\RabbitMQDemo.csproj", "{59B70CAE-C3BF-4AA9-920B-864C1FD242F8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMqDemoSubscriber", "RabbitMqDemoSubscriber\RabbitMqDemoSubscriber.csproj", "{5B7FE3AC-360D-4B44-B75F-440B5F761947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiWithJwt", "WebApiWithJwt\WebApiWithJwt.csproj", "{AE085F46-C643-4BBC-AE64-B76E066BA555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,10 +73,6 @@ Global
 		{36BE398E-9CB0-4007-A6FF-4A9D59BD65E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36BE398E-9CB0-4007-A6FF-4A9D59BD65E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36BE398E-9CB0-4007-A6FF-4A9D59BD65E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D44DCD0-CF1D-4D74-BA3F-AA1A8FCF9EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FFBB354-2633-47C4-AF94-2D04ED66D66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +89,10 @@ Global
 		{5B7FE3AC-360D-4B44-B75F-440B5F761947}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B7FE3AC-360D-4B44-B75F-440B5F761947}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B7FE3AC-360D-4B44-B75F-440B5F761947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE085F46-C643-4BBC-AE64-B76E066BA555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE085F46-C643-4BBC-AE64-B76E066BA555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE085F46-C643-4BBC-AE64-B76E066BA555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE085F46-C643-4BBC-AE64-B76E066BA555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
