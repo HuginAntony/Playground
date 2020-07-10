@@ -6,7 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using WebApiWithJwt.Authentication;
 using WebApiWithJwt.Controllers;
 
 namespace WebApiWithJwt
@@ -24,6 +27,24 @@ namespace WebApiWithJwt
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // Add database service 
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShoppingApi")));
+
+            // Add Identity service
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+
+            //services.AddAuthentication(options =>
+            //    {
+            //        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    })
+
+            // Adding Authentication with Jwt Bearer  
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -44,8 +65,8 @@ namespace WebApiWithJwt
 
             services.AddAuthorization(config =>
             {
-                config.AddPolicy(Policies.Admin, Policies.AdminPolicy());
-                config.AddPolicy(Policies.User, Policies.UserPolicy());
+                config.AddPolicy(UserRoles.Admin, Policies.AdminPolicy());
+                config.AddPolicy(UserRoles.User, Policies.UserPolicy());
             });
         }
 
